@@ -16,7 +16,7 @@
 - **Dockerisation de l'application** : Intégration de la base de données, du front-end et du back-end dans des conteneurs Docker.
 - **Évolution de la base de données** : Suivi de la progression des utilisateurs et recueil de feedbacks.
 - **Dashboard Administratif** : Création d'une interface pour gérer les utilisateurs et les fonctionnalités administratives.
-- **Application Mobile** : Développement d'une version mobile de l'application.
+- **Application Mobile** : Développement d'une version mobile de l'application et/ou cross-plateforme
 
 ## Technologies Utilisées
 
