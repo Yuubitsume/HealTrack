@@ -22,6 +22,7 @@
 - **Dashboard Administratif** : Création d'une interface pour gérer les utilisateurs et les fonctionnalités administratives.
 - **Application Mobile** : Développement d'une version mobile de l'application et/ou cross-plateforme
 - **Planning** : Rajouter un planning avec les exercices à faire sur le jour/semaine/mois 
+- **Tests Unitaires/intégration/Non régression...** : Création de tests divers pour assurer une opérabilité maximale
 
 ## Technologies Utilisées
 
