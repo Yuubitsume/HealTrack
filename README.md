@@ -1,4 +1,6 @@
-# HealTrack
+# HealTrack 
+
+<img src="https://github.com/Yuubitsume/HealTrack/blob/main/logo_Heal-Track.png" alt="Logo HealTrack" width="300" />
 
 ### Projet WorkShop EPSI I1 (Perez Julien - Wonkoue Yossa Gaetan - Pires Remy -  Zodjrakpe Pierre komlavi)
 
@@ -32,8 +34,6 @@
 - **Cahier des charges** : [Cahier des charges](https://docs.google.com/document/d/1cY1b-kYQ8hzLeg0WSyCEYE7bf73GPYdtnn_oQvXKYLQ/edit?usp=sharing)
 - **Trello** : [Trello](https://trello.com/invite/6703abdcd0ab2e79f136da6a/ATTI1ae67cceef638fd4d7c443348ed45da85E3ACE9C)
 - **Drive privé** : [Accès Privé](https://drive.google.com/drive/folders/1K7TxmXnFjC4-9ml0TnkI60Nr9G_SMMeG?usp=drive_link)
-
-<img src="https://github.com/Yuubitsume/HealTrack/blob/main/logo_Heal-Track.png" alt="Logo HealTrack" width="200" />
 
 ---
 
