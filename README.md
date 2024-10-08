@@ -15,7 +15,6 @@
 - **Suivi de la nutrition et de l’activité physique** : Développer une application qui combine des conseils nutritionnels personnalisés avec un suivi des activités physiques via des objets connectés (montres, capteurs, etc.).
 - **Dockerisation de l'application** : Intégration de la base de données, du front-end et du back-end dans des conteneurs Docker.
 - **Évolution de la base de données** : Suivi de la progression des utilisateurs et recueil de feedbacks.
-- **Dashboard Administratif** : Création d'une interface pour gérer les utilisateurs et les fonctionnalités administratives.
 - **Application Mobile** : Développement d'une version mobile de l'application.
 - **Validation par le médecin** : Faire une demande à un médecin spécifique pour qu'il lui soit attitré
 
