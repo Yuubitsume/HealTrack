@@ -13,7 +13,7 @@ class SecurityController extends AbstractController
     {
         $error = null;
         $username = null;
-        return $this->render('security/index.html.twig', [
+        return $this->render('security/login.html.twig', [
             'controller_name' => 'SecurityController',
             'hasError' => $error !== null,
             'username' => $username,
