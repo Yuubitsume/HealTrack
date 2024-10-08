@@ -1,13 +1,18 @@
+{# templates/base.html.twig #}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="author" content="">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<meta name="description" content="This is a login page template based on Bootstrap 5">
-	<title>Auth</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This is a login page template based on Bootstrap 5">
+    <title>{% block title %}Mon Site{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
 
 <body>
 	<section class="h-100">
@@ -38,9 +43,9 @@
 								<div class="mb-3">
 									<div class="mb-2 w-100">
 										<label class="text-muted" for="password">Mot de passe</label>
-										<a href="#" class="float-end">
+										{#<a href="#" class="float-end">
 											Mot de passe oublié?
-										</a>
+										</a>#}
 									</div>
 									<input id="password" type="password" class="form-control" name="_password" required>
 								    {# <div class="invalid-feedback">
@@ -61,7 +66,7 @@
 						</div>
 						<div class="card-footer py-3 border-0">
 							<div class="text-center">
-								Vous n'avez pas de compte? <a href="#" class="text-dark">Crée un compte</a>
+								Vous n'avez pas de compte? <a href="{{ path('inscription') }}" class="text-dark">Crée un compte</a>
 							</div>
 						</div> 
 					</div>
@@ -73,6 +78,6 @@
 		</div>
 	</section>
 
-	<script src="js/login.js"></script>
+	<script src="temp_admin/js/custom_js/login.js"></script>
 </body>
 </html>
