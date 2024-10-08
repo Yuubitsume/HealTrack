@@ -17,6 +17,7 @@
 - **Évolution de la base de données** : Suivi de la progression des utilisateurs et recueil de feedbacks.
 - **Dashboard Administratif** : Création d'une interface pour gérer les utilisateurs et les fonctionnalités administratives.
 - **Application Mobile** : Développement d'une version mobile de l'application.
+- **Validation par le médecin** : Faire une demande à un médecin spécifique pour qu'il lui soit attitré
 
 ## Technologies Utilisées
 
