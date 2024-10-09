@@ -4,7 +4,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="{{ asset('public/temp_admin/img/logo_Heal-Track.ico')}}"/>
     <title>{% block title %}HealTrack{% endblock %}</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="temp_patient/css/bootstrap.css">
@@ -26,11 +25,11 @@
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <!-- Collect the nav links, forms, and other content for toggling -->
-                    <a class="navbar-brand logo_h" href="index.html"><img src="img/logo_Heal_Track_Bleu.png" alt=""></a>
+                    <a class="navbar-brand logo_h" href="{{ path('home') }}"><img src="img/logo_remove_back.png" alt=""></a>
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
                             <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">Accueil</a></li> 
-                            <li class="nav-item"><a class="nav-link" href="about-us.html">oui</a></li> 
+                            <!--<li class="nav-item"><a class="nav-link" href="about-us.html">oui</a></li>-->
                             <li class="nav-item"><a class="nav-link" href="{{ path('soin') }}">Soin</a></li>   
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connexion/inscription</a>
