@@ -22,6 +22,42 @@
         <link rel="stylesheet" href="temp_patient/css/style.css">
         <link rel="stylesheet" href="temp_patient/css/responsive.css">
     </head>
+        <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background:  #1f8c2e;
+        }
+
+        body {    
+            padding-bottom: 200px; /* Ajoute de l'espace en bas de la page */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(to bottom, #C5EAC4, #379944);
+        }
+
+        .container {
+            height: 100%;
+        }
+
+        .form-select {
+            background-color: #e0f7e0; /* Vert pâle */
+            border: 1px solid #1f8c2e; /* Pour garder une cohérence avec le dégradé */
+            color: black; /* Couleur du texte */
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .liste_reactions {
+            padding-top: -80px;
+            color: black;
+        }
+    </style>
+    
     <body>
 
         <h2 class="liste_reactions">Liste de maladies :</h2>
@@ -29,7 +65,7 @@
             <option selected>Sélectionnez une maladie..</option>
             {% for disease in diseases %}
                 <option value="{{ disease.reaction }}">
-                    Maladies : {{ disease.reaction }}
+                    {{ disease.reaction }}
             {% endfor %}
         </select>
 
