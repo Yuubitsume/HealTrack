@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="{{ asset('temp_admin/img/logo_Heal-Track')}}"/>
+    <link rel="shortcut icon" href="{{ asset('public/temp_admin/img/logo_Heal-Track.ico')}}"/>
     <title>{% block title %}HealTrack{% endblock %}</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="temp_patient/css/bootstrap.css">
@@ -25,28 +25,21 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="index.html"><img src="temp_patient/img/logo.png" alt=""></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
                     <!-- Collect the nav links, forms, and other content for toggling -->
+                    <a class="navbar-brand logo_h" href="index.html"><img src="img/logo_Heal_Track_Bleu.png" alt=""></a>
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li> 
-                            <li class="nav-item"><a class="nav-link" href="about-us.html">About</a></li> 
-                            <li class="nav-item"><a class="nav-link" href="department.html">Department</a></li> 
-                            <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>    
+                            <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">Accueil</a></li> 
+                            <li class="nav-item"><a class="nav-link" href="about-us.html">oui</a></li> 
+                            <li class="nav-item"><a class="nav-link" href="{{ path('soin') }}">Soin</a></li>   
                             <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connexion/inscription</a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="element.html">element</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ path('login') }}">Connexion</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{{ path('inscription') }}">Inscription</a></li>
                                 </ul>
                             </li> 
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -64,9 +57,4 @@
     <script src="temp_patient/vendors/owl-carousel/owl.carousel.min.js"></script>
     <script src="temp_patient/jsjquery.ajaxchimp.min.js"></script>
     <script src="temp_patient/jswaypoints.min.js"></script>
-    <script src="temp_patient/jsmail-script.js"></script>
-    <script src="temp_patient/jscontact.js"></script>
-    <script src="temp_patient/jsjquery.form.js"></script>
-    <script src="temp_patient/jsjquery.validate.min.js"></script>
-    <script src="temp_patient/jsmail-script.js"></script>
     <script src="temp_patient/jstheme.js"></script>
