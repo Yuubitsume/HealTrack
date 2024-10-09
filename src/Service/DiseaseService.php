@@ -14,22 +14,33 @@ class DiseaseService
     public function __construct()
     {
         $this->client = new Client([
-            'verify' => false, // Désactive la vérification SSL
+            'verify' => false, // Désactive la vérification SSL (à utiliser avec prudence)
         ]);
     }
 
     public function getDiseases(): array
     {
         try {
-            // Utilisez l'URL correcte pour récupérer les maladies
-            $response = $this->client->request('GET', 'https://api.digital.nhs.uk/conditions');
+            $response = $this->client->request('GET', 'https://api.fda.gov/drug/event.json?search=patient.drug.medicinalproduct:"aspirin"&limit=10');
             $data = json_decode($response->getBody()->getContents(), true);
-            var_dump($data);
-            return $data['diseases'] ?? [];
+    
+            if (isset($data['results'])) {
+                $diseases = [];
+                foreach ($data['results'] as $result) {
+                    foreach ($result['patient']['reaction'] as $reaction) {
+                        // Ajoutez chaque réaction et produit au tableau
+                        $diseases[] = [
+                            'reaction' => $reaction['reactionmeddrapt'] ?? 'Non spécifié', // S'assurer que la clé existe
+                        ];
+                    }
+                }
+    
+                return $diseases; // Retournez le tableau des maladies
+            }
+            return []; // Aucune maladie trouvée
+    
         } catch (GuzzleException $e) {
-            // Affichez l'erreur pour le débogage
             dd('Erreur lors de la récupération des maladies: ' . $e->getMessage());
         }
-            return [];
-        }
-    }
+    }    
+}
