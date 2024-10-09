@@ -46,7 +46,6 @@ class ExerciceController extends AbstractController
         ]);
     }
 
-   
     #[Route(path: '/exercice/{id}/edit', name: 'exercice.edit')]
     public function edit (Exercice $exercice, Request $request){
 
