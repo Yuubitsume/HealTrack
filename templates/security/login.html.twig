@@ -1,4 +1,4 @@
-{# templates/base.html.twig #}
+{% include 'base.html.twig' %}
 {% block head %}
     <meta charset="utf-8">
     <meta name="author" content="">
@@ -44,7 +44,7 @@
                     <!-- Logo bien aligné à gauche -->
                     <div class="logo-container" style="flex: 0;">
                         <a href="{{ path('home') }}">
-                            <img src="{{ asset('img/logo_Heal-Track.png') }}" alt="Heal-Track" width="100" style="margin-right: auto;">
+                            <img src="{{ asset('img/logo_remove_back.png') }}" alt="Heal-Track" width="100" style="margin-right: auto;">
                         </a>                        
                     </div>
 

@@ -1,6 +1,6 @@
 <?php
 
-// src/Controller/SoinController.php
+// src/Controller/listeMaladieController.php
 
 namespace App\Controller;
 
@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class SoinController extends AbstractController
+class listeMaladieController extends AbstractController
 {
     private $diseaseService;
 
@@ -18,13 +18,13 @@ class SoinController extends AbstractController
         $this->diseaseService = $diseaseService;
     }
 
-    #[Route('/soin', name: 'soin')]
+    #[Route('/liste_Maladie', name: 'listeMaladie')]
     public function index(): Response
     {
         $diseases = $this->diseaseService->getDiseases(); // Appel au service
 
-        return $this->render('security/soin.html.twig', [
-            'controller_name' => 'SoinController',
+        return $this->render('security/liste_maladie.html.twig', [
+            'controller_name' => 'listeMaladieController',
             'diseases' => $diseases, // Passez les données à la vue
         ]);
     }
