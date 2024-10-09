@@ -5,62 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="This is a login page template based on Bootstrap 5">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background:  #1f8c2e;
+        }
+
+        section.h-100 {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(to bottom, #d4f2d2, #1f8c2e);
+        }
+
+        .container {
+            height: 100%;
+        }
+
+        /* Ajout de style pour limiter la largeur du formulaire */
+        .card {
+            max-width: 500px; /* Limite la largeur du formulaire */
+            margin: 0 auto;   /* Centre le formulaire */
+        }
+    </style>
 {% endblock %}
-{% include 'base.html.twig'%}
+
 {% block body %}
-    <section class="h-100">
-        <div class="container h-100">
-            <div class="row justify-content-sm-center h-100">
-                <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
-                    <div class="text-center my-5">
-                        <img src="{{ asset('img/logo_Heal-Track.png') }}" alt="Heal-Track" width="100">
+<section class="h-100">
+    <div class="container h-100">
+        <div class="row justify-content-center h-100">
+            <!-- Logo et texte d'accueil -->
+            <div class="col-12">
+                <div class="d-flex align-items-center my-5">
+                    <!-- Logo bien aligné à gauche -->
+                    <div class="logo-container" style="flex: 0;">
+                        <a href="{{ path('home') }}">
+                            <img src="{{ asset('img/logo_Heal-Track.png') }}" alt="Heal-Track" width="100" style="margin-right: auto;">
+                        </a>                        
                     </div>
-                    {% if hasError %}
-                        <div class="alert alert-danger alert-block">
-                            <button type="button" class="close" data-dismiss="alert"></button>
-                            <strong>Une erreur est survenue, nom d'utilisateur ou mot de passe invalide</strong>
-                        </div>
-                    {% endif %}
-                    <div class="card shadow-lg">
-                        <div class="card-body p-5">
-                            <h1 class="fs-4 card-title fw-bold mb-4">Authentification</h1>
-                            <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
-                                <div class="mb-3">
-                                    <label class="mb-2 text-muted" for="email">Nom utilisateur</label>
-                                    <input id="email" type="email" class="form-control" name="_username" value="{{ username }}" required autofocus>
-                                    <div class="invalid-feedback">
-                                        Nom utilisateur ou mot de passe incorrect
-                                    </div>
-                                </div>
 
-                                <div class="mb-3">
-                                    <div class="mb-2 w-100">
-                                        <label class="text-muted" for="password">Mot de passe</label>
-                                    </div>
-                                    <input id="password" type="password" class="form-control" name="_password" required>
-                                </div>
+                    <!-- Texte centré -->
+                    <h1 class="fw-bold text-center flex-grow-1" style="font-size: 2rem; color: black;">WELCOME TO YOUR REHAB APP</h1>
+                </div>
+            </div>
 
-                                <div class="d-flex align-items-center">
-                                    <div class="form-check">
-                                        <input type="checkbox" name="remember" id="remember" class="form-check-input">
-                                        <label for="remember" class="form-check-label">Se souvenir de moi</label>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary ms-auto">
-                                        Connexion
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="card-footer py-3 border-0">
-                            <div class="text-center">
-                                Vous n'avez pas de compte? <a href="{{ path('inscription') }}" class="text-dark">Crée un compte</a>
+            {% if hasError %}
+                <div class="alert alert-danger alert-block">
+                    <button type="button" class="close" data-dismiss="alert"></button>
+                    <strong>Une erreur est survenue, nom d'utilisateur ou mot de passe invalide</strong>
+                </div>
+            {% endif %}
+            
+            <!-- Ajout de la classe card qui est déjà stylée avec une largeur limitée -->
+            <div class="card shadow-lg">
+                <div class="card-body p-5">
+                    <h1 class="fs-4 card-title fw-bold mb-4">Authentification</h1>
+                    <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+                        <div class="mb-3">
+                            <label class="mb-2 text-muted" for="email">Nom utilisateur</label>
+                            <input id="email" type="email" class="form-control" name="_username" value="{{ username }}" required autofocus>
+                            <div class="invalid-feedback">
+                                Nom utilisateur ou mot de passe incorrect
                             </div>
                         </div>
+
+                        <div class="mb-3">
+                            <div class="mb-2 w-100">
+                                <label class="text-muted" for="password">Mot de passe</label>
+                            </div>
+                            <input id="password" type="password" class="form-control" name="_password" required>
+                        </div>
+
+                        <div class="d-flex align-items-center">
+                            <div class="form-check">
+                                <input type="checkbox" name="remember" id="remember" class="form-check-input">
+                                <label for="remember" class="form-check-label">Se souvenir de moi</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary ms-auto">
+                                Connexion
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer py-3 border-0">
+                    <div class="text-center">
+                        Vous n'avez pas de compte? <a href="{{ path('inscription') }}" class="text-dark">Crée un compte</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <script src="temp_admin/js/custom_js/login.js"></script>
+        </div>
+    </div>
+</section>
+
+<script src="temp_admin/js/custom_js/login.js"></script>
 {% endblock %}
