@@ -103,6 +103,10 @@ button:focus {
 img {
   max-width: 100%; }
 
+.liste_reactions {
+  padding-top: 180px;
+}
+
 ul {
   list-style: none;
   padding: 0; }
