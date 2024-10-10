@@ -102,7 +102,7 @@
                 <div class="card shadow-lg">
                     <div class="card-body p-3">
                         <h2 class="fs-4 card-title fw-bold mb-4">Inscription</h2>
-                        <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+                        <form method="POST" action="{{path('inscription')}}">
                             <label for="role">Choisissez votre rôle :</label>
                             <select id="role" name="role" class="form-select mb-3">
                                 <option value="">-- Sélectionnez --</option>
@@ -110,20 +110,68 @@
                                 <option value="medecin">Médecin</option>
                             </select>
 
-                            <div id="common-fields">
-                                <div class="mb-3">
-                                    <label for="nom" class="form-label">Nom :</label>
-                                    <input type="text" id="nom" name="nom" class="form-control" required>
-                                </div>
+                        <div class="row">
 
-                                <div class="mb-3">
-                                    <label for="prenom" class="form-label">Prénom :</label>
-                                    <input type="text" id="prenom" name="prenom" class="form-control" required>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="select23" class="control-label">Nom *</label>
+                                    {{ form_errors(form.name) }}
+                                    {{ form_widget(form.name) }}
                                 </div>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="select23" class="control-label">Prénoms *</label>
+                                    {{ form_errors(form.lastname) }}
+                                    {{ form_widget(form.lastname) }}
+                                </div>
+                            </div>
+                             <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="select23" class="control-label">Genre</label>
+                                    {{ form_errors(form.sex) }}
+                                    {{ form_widget(form.sex) }}
+                                </div>
+                            </div>
 
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email :</label>
-                                    <input type="email" id="email" name="email" class="form-control" required>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="select23" class="control-label">Email</label>
+                                    {{ form_errors(form.email) }}
+                                    {{ form_widget(form.email) }}
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="select23" class="control-label">Téléphone</label>
+                                    {{ form_errors(form.phone) }}
+                                    {{ form_widget(form.phone) }}
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="select23" class="control-label">Adresse</label>
+                                    {{ form_errors(form.address) }}
+                                    {{ form_widget(form.address) }}
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="select23" class="control-label">Mot de passe</label>
+                                    {{ form_errors(form.password) }}
+                                    {{ form_widget(form.password) }}
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="select23" class="control-label">Date de naissance</label>
+                                    {{ form_errors(form.birthDay) }}
+                                    {{ form_widget(form.birthDay) }}
                                 </div>
                             </div>
                                 <div class="mb-3">
@@ -133,19 +181,31 @@
 
 
                             <div id="medecin-fields" style="display: none;">
-                                <div class="mb-3">
-                                    <label for="specialite" class="form-label">Spécialité :</label>
-                                    <input type="text" id="specialite" name="specialite" class="form-control">
+                                <div class="form-group">
+                                    <label for="select23" class="control-label">Spécialité</label>
+                                    {{ form_errors(form.speciality) }}
+                                    {{ form_widget(form.speciality) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="select23" class="control-label">Biographie</label>
+                                    {{ form_errors(form.biography) }}
+                                    {{ form_widget(form.biography) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="select23" class="control-label">Photo</label>
+                                    {{ form_errors(form.photo) }}
+                                    {{ form_widget(form.photo) }}
                                 </div>
                             </div>
-                            
-
-                            <div id="patient-fields" style="display: none;">
-                                <div class="mb-3">
-                                    <label for="date-naissance" class="form-label">Date de naissance :</label>
-                                    <input type="date" id="date-naissance" name="date-naissance" class="form-control">
+                       
+                           <div id="patient-fields" style="display: none;">
+                                <div class="form-group">
+                                    <label for="select23" class="control-label">Numéro assurance</label>
+                                    {{ form_errors(form.insuranceNumber) }}
+                                    {{ form_widget(form.insuranceNumber) }}
                                 </div>
                             </div>
+                         </div>
 
                             <div class="d-flex align-items-center mt-3">
                                 <button type="submit" class="btn btn-primary ms-auto">
