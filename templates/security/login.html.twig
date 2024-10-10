@@ -53,6 +53,7 @@
                 </div>
             </div>
 
+
             {% if hasError %}
                 <div class="alert alert-danger alert-block">
                     <button type="button" class="close" data-dismiss="alert"></button>
@@ -65,6 +66,9 @@
                 <div class="card-body p-5">
                     <h1 class="fs-4 card-title fw-bold mb-4">Authentification</h1>
                     <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+                    {% if csrf_token %} 
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" /> 
+                    {% endif %}
                         <div class="mb-3">
                             <label class="mb-2 text-muted" for="email">Nom utilisateur</label>
                             <input id="email" type="email" class="form-control" name="_username" value="{{ username }}" required autofocus>
@@ -72,6 +76,7 @@
                                 Nom utilisateur ou mot de passe incorrect
                             </div>
                         </div>
+
 
                         <div class="mb-3">
                             <div class="mb-2 w-100">

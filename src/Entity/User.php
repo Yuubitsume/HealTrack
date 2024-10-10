@@ -7,9 +7,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-class User
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -37,13 +39,13 @@ class User
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $speciality = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $phone = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $address = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?bool $status = null;
 
     #[ORM\Column(nullable: true)]
@@ -67,10 +69,21 @@ class User
     #[ORM\OneToMany(targetEntity: UserExercice::class, mappedBy: 'user')]
     private Collection $userExercices;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $insurance_number = null;
+
+    /**
+     * @var Collection<int, Role>
+     */
+    #[ORM\ManyToMany(targetEntity: Role::class, inversedBy: 'users')]
+    private Collection $role;
+
     public function __construct()
     {
         $this->patientMaladies = new ArrayCollection();
         $this->userExercices = new ArrayCollection();
+        $this->role = new ArrayCollection();
+        $this->status = false;
     }
 
     public function getId(): ?int
@@ -293,4 +306,65 @@ class User
 
         return $this;
     }
+
+    public function getInsuranceNumber(): ?string
+    {
+        return $this->insurance_number;
+    }
+
+    public function setInsuranceNumber(?string $insurance_number): static
+    {
+        $this->insurance_number = $insurance_number;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Role>
+     */
+    public function getRole(): Collection
+    {
+        return $this->role;
+    }
+
+    public function addRole(Role $role): static
+    {
+        if (!$this->role->contains($role)) {
+            $this->role->add($role);
+        }
+
+        return $this;
+    }
+
+    public function removeRole(Role $role): static
+    {
+        $this->role->removeElement($role);
+
+        return $this;
+    }
+
+     // Implement other methods required by UserInterface
+     public function getRoles(): array
+     {
+        $roles = $this->role->map(fn($role) => $role->getName())->toArray();
+
+        $roles[] = 'ROLE_USER';
+        return $roles;
+     }
+ 
+     public function getSalt()
+     {
+        return null;
+         // not needed when using modern algorithms
+     }
+ 
+     public function eraseCredentials()
+     {
+         // if you store any temporary, sensitive data on the user, clear it here
+     }
+ 
+     public function getUserIdentifier(): string
+     {
+        return (string) $this->email;
+     }
 }
