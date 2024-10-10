@@ -1,24 +1,35 @@
+{% include 'base.html.twig' %}
 {% block head %}
     <meta charset="utf-8">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="This is une page d'inscription basée sur Bootstrap 5">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="temp_patient/css/bootstrap.css">
+    <link rel="stylesheet" href="temp_patient/css/themify-icons.css">
+    <link rel="stylesheet" href="temp_patient/css/flaticon.css">
+    <link rel="stylesheet" href="temp_patient/vendors/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="temp_patient/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="temp_patient/vendors/animate-css/animate.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="temp_patient/css/style.css">
+    <link rel="stylesheet" href="temp_patient/css/responsive.css">
     <style>
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
-            background:  #1f8c2e;
+            background: #1f8c2e;
         }
 
         section.h-100 {
-            min-height: 100vh;
+            min-height: 130vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding-bottom: 100px; /* Ajoute un espacement en bas */
-          background: linear-gradient(to bottom, #C5EAC4, #379944);
+            background: linear-gradient(to bottom, #C5EAC4, #379944);
         }
 
         .container {
@@ -28,13 +39,47 @@
         .card {
              background-color: #e0f7e0; /* Vert pâle */
         }
+
+        .logo_h {
+            position: absolute;
+            top: 30px; /* Ajustez si nécessaire pour le rapprocher ou l'éloigner du haut */
+            left: 200px; /* Mettez une valeur plus petite pour le décaler davantage à gauche */
+            z-index: 1000; /* Pour s'assurer que le logo reste au-dessus des autres éléments */
+        }
     </style>
 {% endblock %}
 
-{% include 'base.html.twig' %}
-
 {% block body %}
-<section class="h-100">
+
+        <section class="h-100">
+<!--================Header Menu Area =================-->
+            <header class="header_area">  
+            <div class="main_menu">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <a class="navbar-brand logo_h" href="{{ path('home') }}">
+                            <img src="img/logo_remove_back.png" alt="HealTrack Logo">
+                        </a>
+                        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav menu_nav ml-auto">
+                                <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">Accueil</a></li> 
+                                <!--<li class="nav-item"><a class="nav-link" href="about-us.html">oui</a></li>-->
+                                <li class="nav-item"><a class="nav-link" href="{{ path('soin') }}">Soin</a></li>   
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connexion/inscription</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="nav-link" href="{{ path('login') }}">Connexion</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{{ path('inscription') }}">Inscription</a></li>
+                                    </ul>
+                                </li> 
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    <!--================Header Menu Area =================-->
     <div class="container h-100">
         <div class="row justify-content-center align-items-center h-100">
             <!-- Logo et texte d'accueil -->

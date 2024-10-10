@@ -18,34 +18,66 @@
 </head>
 <body>
 
+ <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: #1f8c2e;
+        }
+
+        section.h-100 {
+            min-height: 130vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-bottom: 100px; /* Ajoute un espacement en bas */
+            background: linear-gradient(to bottom, #C5EAC4, #379944);
+        }
+
+        .container {
+            height: 100%;
+        }
+
+        .card {
+             background-color: #e0f7e0; /* Vert pâle */
+        }
+
+        .logo_h {
+            position: absolute;
+            top: 30px; /* Ajustez si nécessaire pour le rapprocher ou l'éloigner du haut */
+            left: 100px; /* Mettez une valeur plus petite pour le décaler davantage à gauche */
+            z-index: 1000; /* Pour s'assurer que le logo reste au-dessus des autres éléments */
+        }
+    </style>
+
     <!--================Header Menu Area =================-->
     <header class="header_area">  
-        <div class="main_menu">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                   
-                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">Accueil</a></li> 
-                            <!--<li class="nav-item"><a class="nav-link" href="about-us.html">oui</a></li>-->
-                            <li class="nav-item"><a class="nav-link" href="{{ path('soin') }}">Soin</a></li>   
-                            <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connexion/inscription</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="{{ path('login') }}">Connexion</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{{ path('inscription') }}">Inscription</a></li>
-                                </ul>
-                            </li> 
-                            
-                        </ul>
-                         <a class="navbar-brand logo_h" href="{{ path('home') }}"><img src="img/logo_remove_back.png" alt=""></a>
-                    </div>
+    <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <a class="navbar-brand logo_h" href="{{ path('home') }}">
+                    <img src="img/logo_remove_back.png" alt="HealTrack Logo">
+                </a>
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav menu_nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">Accueil</a></li> 
+                        <!--<li class="nav-item"><a class="nav-link" href="about-us.html">oui</a></li>-->
+                        <li class="nav-item"><a class="nav-link" href="{{ path('soin') }}">Soin</a></li>   
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connexion/inscription</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class="nav-link" href="{{ path('login') }}">Connexion</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('inscription') }}">Inscription</a></li>
+                            </ul>
+                        </li> 
+                    </ul>
                 </div>
-            </nav>
-        </div>
-    </header>
+            </div>
+        </nav>
+    </div>
+</header>
     <!--================Header Menu Area =================-->
 
  <!-- Optional JavaScript -->
