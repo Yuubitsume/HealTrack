@@ -32,6 +32,10 @@
             margin: 0 auto;   /* Centre le formulaire */
             background-color: #e0f7e0; /* Vert pâle */
         }
+
+        .titre {
+            padding-right: 200px;
+        }
     </style>
 {% endblock %}
 
@@ -41,16 +45,16 @@
         <div class="row justify-content-center align-items-center h-100">
             <!-- Logo et texte d'accueil -->
             <div class="col-12">
-                <div class="d-flex align-items-center my-5">
+                <div class="d-flex align-items-center my-4">
                     <!-- Logo bien aligné à gauche -->
                     <div class="logo-container" style="flex: 0;">
                         <a href="{{ path('home') }}">
-                            <img src="{{ asset('img/logo_remove_back.png') }}" alt="Heal-Track" width="100" style="margin-right: auto;">
+                            <img src="{{ asset('img/logo_remove_back.png') }}" alt="Heal-Track" width="200" style="margin-right: auto;">
                         </a>                        
                     </div>
 
                     <!-- Texte centré -->
-                    <h1 class="fw-bold text-center flex-grow-1" style="font-size: 2rem; color: black;">WELCOME TO YOUR REHAB APP</h1>
+                    <h1 class="fw-bold text-center flex-grow-1 titre" style="font-size: 2rem; color: black;">WELCOME TO YOUR REHAB APP</h1>
                 </div>
             </div>
 

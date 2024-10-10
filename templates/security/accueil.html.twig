@@ -11,45 +11,24 @@
     <link rel="stylesheet" href="temp_patient/css/style.css">
     <link rel="stylesheet" href="temp_patient/css/responsive.css">
 </head>
-<body> <style>
+{% include 'navbar.html.twig'%}
+<style>
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
-            background: #1f8c2e;
-        }
-
-        section.h-100 {
-            min-height: 130vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-bottom: 100px; /* Ajoute un espacement en bas */
-            background: linear-gradient(to bottom, #C5EAC4, #379944);
-        }
-
-        .container {
-            height: 100%;
+            background: white;
         }
 
         .card {
-             background-color: #e0f7e0; /* Vert pâle */
+            max-width: 500px; /* Limite la largeur du formulaire */
+            margin: 0 auto;   /* Centre le formulaire */
+            background-color: white; /* Vert pâle */
         }
-
-        .logo_h {
-            position: absolute;
-            top: 30px; /* Ajustez si nécessaire pour le rapprocher ou l'éloigner du haut */
-            left: 100px; /* Mettez une valeur plus petite pour le décaler davantage à gauche */
-            z-index: 1000; /* Pour s'assurer que le logo reste au-dessus des autres éléments */
-        }
-    </style>
+</style>
+<body>
 {% endblock %}
-
-
-
 <!--================Home Banner Area =================-->
-
-{% include 'navbar.html.twig'%}
 <section class="banner-area d-flex align-items-center">
     <div class="container">
         <div class="row">
