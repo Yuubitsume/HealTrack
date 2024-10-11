@@ -13,7 +13,6 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class ExerciceController extends AbstractController
 {
-     
     public function __construct(private readonly ExerciceRepository $exerciceRepository, private readonly EntityManagerInterface $em)
     {
     }

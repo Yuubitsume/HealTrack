@@ -1,0 +1,11 @@
+    {% for result in results %} 
+        <div class="col-md-6">
+            <div class="card card-feature text-center text-lg-left">
+                <h3 class="card-feature__title"><span class="card-feature__icon">
+                    <i class="ti-layers"></i>
+                </span>{{result.name}}</h3>
+                <p class="card-feature__subtitle">{{result.description}}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>

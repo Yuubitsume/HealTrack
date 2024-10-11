@@ -37,7 +37,6 @@ security:
          - { path: ^/inscription, roles: PUBLIC_ACCESS }
          - { path: ^/liste_Maladie, roles: PUBLIC_ACCESS }
          - { path: ^/home, roles: PUBLIC_ACCESS }
-         - { path: ^/soin, roles: PUBLIC_ACCESS }
          - { path: ^/, roles: IS_AUTHENTICATED_FULLY }
          
         # - { path: ^/profile, roles: ROLE_USER }

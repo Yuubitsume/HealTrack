@@ -78,45 +78,67 @@
     <body>
     <div class="container2">
         <h2 class="liste_reactions">Liste de maladies :</h2>
-        <select class="form-select liste_reaction_select" aria-label="Sélectionnez une réaction médicamenteuse">
+        <select class="form-select liste_reaction_select" aria-label="Sélectionnez une réaction médicamenteuse" id="searchOption" name="searchOption" onchange="fetchResults()">
             <option selected>Sélectionnez une maladie..</option>
-            <option>oui</option>
+            {% for maladie in maladies %}
+                <option value="{{maladie.id}}">{{maladie.name}}</option>
+            {% endfor %}
         </select>
     </div>
 </body>
 
 <section class="feature-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card card-feature text-center text-lg-left">
-                    <h3 class="card-feature__title"><span class="card-feature__icon">
-                        <i class="ti-layers"></i>
-                    </span>Soins Personnalisés</h3>
-                    <p class="card-feature__subtitle">Nous offrons des programmes de rééducation adaptés à vos besoins spécifiques, pour une récupération en toute sécurité.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card card-feature text-center text-lg-left">
-                    <h3 class="card-feature__title"><span class="card-feature__icon">
-                        <i class="ti-heart-broken"></i>
-                    </span>Urgences</h3>
-                    <p class="card-feature__subtitle">En cas de complications, notre équipe est disponible 24/7 pour une assistance rapide et efficace.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card card-feature text-center text-lg-left">
-                    <h3 class="card-feature__title"><span class="card-feature__icon">
-                        <i class="ti-headphone-alt"></i>
-                    </span>Consultations en Ligne</h3>
-                    <p class="card-feature__subtitle">Prenez rendez-vous facilement avec nos experts en rééducation pour un suivi à distance en toute sérénité.</p>
-                </div>
-            </div>
-        </div>
+    <div class="container" id="results">
+       
     </div>
 </section>
 <!--================ Feature section end =================--> 
         <!--JavaScript -->
+<script>
+function fetchResults() {
+    var searchOption = document.getElementById('searchOption').value;
+
+    if (searchOption !== '') {
+        // Faire une requête AJAX vers Symfony
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/search?option=" + searchOption, true);
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Convertir la réponse JSON en objet JavaScript
+                var data = JSON.parse(xhr.responseText);
+
+                // Vérifie s'il y a des résultats à afficher
+                if (data.length > 0) {
+                    // Générer le HTML pour les résultats
+                   let resultHtml = '<ul>';
+                    data.forEach(article => {
+                      resultHtml += `
+                            <li>
+                                <h3>${article.name}</h3> <!-- Titre de l'exercice -->
+                                <p>${article.description}</p> <!-- Description de l'exercice -->
+                            </li>
+                        `;
+                    });
+                   resultHtml += '</ul>';
+                   console.log(resultHtml)
+
+                    // Afficher les résultats
+                    document.getElementById('results').innerHTML = resultHtml;
+                } else {
+                    document.getElementById('results').innerHTML = 'Aucun résultat trouvé.';
+                }
+            }
+        };
+
+        // Envoyer la requête
+        xhr.send();
+    } else {
+        document.getElementById("results").innerHTML = "Veuillez sélectionner une option.";
+    }
+}
+
+</script>
     </body>
 </html>
 {% endblock %}
